@@ -192,22 +192,22 @@ kbd{font:inherit;font-size:11px;font-weight:600;color:var(--muted);border:1px so
 .orbits svg{width:100%;height:100%;overflow:visible}
 .orbit-ring{fill:none;stroke:rgba(154,200,192,.22);stroke-width:1}
 .orbit-ring.dotted{stroke-dasharray:2 7;stroke:rgba(154,200,192,.32)}
-.orbit-arc{fill:none;stroke-width:2;stroke-linecap:round;opacity:.7}
+.orbit-arc{fill:none;stroke-width:2;stroke-linecap:round;opacity:.12}
 .orbit-spin{transform-box:view-box;transform-origin:210px 210px;animation:orbit-turn var(--dur,48s) linear infinite}
 .orbit-spin.reverse{animation-direction:reverse}
 .orbit-dot{fill:var(--turq)}
 .orbit-dot.lime{fill:var(--lime)}
 .orbit-dot.soft{fill:var(--turq-soft)}
 /* pulso simétrico: com a curva de entrada o laço reiniciava com um salto visível */
-.orbit-pulse{animation:orbit-glow 6.4s ease-in-out infinite}
+.orbit-pulse{animation:orbit-glow 6.4s ease-in-out infinite both}
 @keyframes orbit-turn{to{transform:rotate(360deg)}}
 @keyframes orbit-glow{0%,100%{opacity:.12}50%{opacity:.6}}
 
 .stepper{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s-2);margin-top:auto}
 /* Feixe direcional do Design System: linha contínua e segmento que percorre o fluxo */
 .stepper .beam-line{position:absolute;left:32px;right:32px;top:17px;height:2px;background:var(--turq-soft);opacity:.45}
-.stepper .beam-line:after{content:"";position:absolute;top:0;width:40px;height:2px;background:var(--turq);animation:beam-flow 2.4s var(--ease) infinite}
-@keyframes beam-flow{from{left:0}to{left:calc(100% - 40px)}}
+.stepper .beam-line:after{content:"";position:absolute;top:0;width:40px;height:2px;background:var(--turq);opacity:0;animation:beam-flow 3.2s var(--ease) infinite both}
+@keyframes beam-flow{0%{left:0;opacity:0}18%{opacity:1}82%{opacity:1}100%{left:calc(100% - 40px);opacity:0}}
 .stepper .step{border:0;background:transparent;padding:0;color:inherit;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:var(--s-2);flex:0 0 auto;width:64px;
   transition:transform var(--m-hover) var(--ease)}
 .stepper .dot{position:relative;z-index:1;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(154,200,192,.55);background:var(--dark-int);font-size:13px;font-weight:700;color:#fff;
